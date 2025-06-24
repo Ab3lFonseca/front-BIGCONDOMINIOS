@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const username = "admin";
 const password = "123456";
-const basicAuth = btoa(${username}:${password});
+const basicAuth = btoa(`${username}:${password}`);
 let chartInstance = null;
 
 function listarPagamentos() {
