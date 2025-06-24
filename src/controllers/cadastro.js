@@ -2,6 +2,7 @@
 const username = "admin";
 const password = "123456";
 const basicAuth = btoa(`${username}:${password}`);
+
 function cadastrarMorador() {
   const nomeEl = document.getElementById("nomeMorador");
   const cpfEl = document.getElementById("cpfMorador");
@@ -64,7 +65,9 @@ function cadastrarMorador() {
 
   fetch("https://back-endbigcondominios-production.up.railway.app/morador", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json",
+      "Authorization": `Basic ${basicAuth}`
+     },
     body: JSON.stringify(morador)
   })
     .then(response => {
