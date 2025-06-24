@@ -94,7 +94,13 @@ function listarPagamentos() {
 }
 
 function carregarReservasFuturas() {
-  fetch("https://back-endbigcondominios-production.up.railway.app/reservas/futuras")
+  fetch("https://back-endbigcondominios-production.up.railway.app/reservas/futuras",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
     .then(res => res.json())
     .then(reservas => {
       const ul = document.getElementById("listaReservasIndex");
