@@ -3,6 +3,14 @@
     {
       "src": "src/pages/**",
       "use": "@vercel/static"
+    },
+    {
+      "src": "src/controllers/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/styles/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
