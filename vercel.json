@@ -1,18 +1,7 @@
 {
-  "builds": [
-    {
-      "src": "src/pages/index.html",
-      "use": "@vercel/static-build"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/",
-      "dest": "src/pages/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "src/pages/$1"
-    }
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/src/pages/index.html" },
+    { "source": "/(.*)", "destination": "/src/pages/$1" }
   ]
 }
