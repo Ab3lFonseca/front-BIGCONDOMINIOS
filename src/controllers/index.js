@@ -14,7 +14,13 @@ const basicAuth = btoa(`${username}:${password}`);
 let chartInstance = null;
 
 function listarPagamentos() {
-    fetch("https://back-endbigcondominios-production.up.railway.app/pagamentos/completo")
+    fetch("https://back-endbigcondominios-production.up.railway.app/pagamentos/completo",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
         .then(res => {
             if (!res.ok) throw new Error("Erro ao buscar dados");
             return res.json();
