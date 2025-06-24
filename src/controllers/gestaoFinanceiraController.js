@@ -143,7 +143,9 @@ function registrarPagamento() {
 
     fetch("https://back-endbigcondominios-production.up.railway.app/pagamentos", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: { "Content-Type": "application/json",
+      "Authorization": `Basic ${basicAuth}`
+     },
         body: JSON.stringify(pagamento)
     })
     .then(res => {

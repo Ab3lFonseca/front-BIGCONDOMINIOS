@@ -124,7 +124,9 @@ function fazerReserva() {
 
   fetch("https://back-endbigcondominios-production.up.railway.app/reservas", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json",
+      "Authorization": `Basic ${basicAuth}`
+     },
     body: JSON.stringify(body)
   }).then(() => listarReservas());
 }
