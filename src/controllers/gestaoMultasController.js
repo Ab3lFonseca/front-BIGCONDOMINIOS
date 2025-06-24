@@ -123,7 +123,9 @@ function adicionarMultaNaTabela(multa, nomeMorador) {
 
         fetch(`https://back-endbigcondominios-production.up.railway.app/multas/${multa.id}/status`, {
             method: "PUT",
-            headers: { "Content-Type": "application/json" },
+           headers: { "Content-Type": "application/json",
+      "Authorization": `Basic ${basicAuth}`
+     },
             body: JSON.stringify({ status: novoStatus })
         })
         .then(res => {
