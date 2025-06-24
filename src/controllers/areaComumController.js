@@ -45,7 +45,7 @@ function validarDataReserva() {
 }
 
 function carregarAreas() {
-    fetch("http://localhost:8080/area-comum")
+    fetch("https://back-endbigcondominios-production.up.railway.app/area-comum")
         .then(res => res.json())
         .then(areas => {
             const select = document.getElementById("areaSelect");
@@ -59,7 +59,7 @@ function carregarAreas() {
 }
 
 function listarReservas() {
-    fetch("http://localhost:8080/reservas/futuras")
+    fetch("https://back-endbigcondominios-production.up.railway.app/reservas/futuras")
         .then(res => res.json())
         .then(reservas => {
             const tbody = document.getElementById("corpoTabelaReservas");
@@ -106,7 +106,7 @@ function fazerReserva() {
     data: dataReserva
   };
 
-  fetch("http://localhost:8080/reservas", {
+  fetch("https://back-endbigcondominios-production.up.railway.app/reservas", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body)
@@ -116,7 +116,7 @@ function fazerReserva() {
 function cancelarReserva(id) {
     if (!confirm("Deseja realmente cancelar esta reserva?")) return;
 
-    fetch(`http://localhost:8080/reservas/${id}`, {
+    fetch(`https://back-endbigcondominios-production.up.railway.app/reservas/${id}`, {
         method: "DELETE"
     })
     .then(response => {
@@ -132,7 +132,7 @@ function cancelarReserva(id) {
 }
 
 function carregarMoradores() {
-  fetch("http://localhost:8080/morador")
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador")
     .then(res => res.json())
     .then(moradores => {
       const select = document.getElementById("moradorSelect");

@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
     function carregarMoradores() {
-        fetch("http://localhost:8080/morador")
+        fetch("https://back-endbigcondominios-production.up.railway.app/morador")
             .then(res => res.json())
             .then(moradores => {
         const select = document.getElementById("morador");
@@ -38,7 +38,7 @@ function adicionarMulta(event) {
         gravidade: document.getElementById("gravidade").value
     };
 
-    fetch("http://localhost:8080/multas", {
+    fetch("https://back-endbigcondominios-production.up.railway.app/multas", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(multa)
@@ -90,7 +90,7 @@ function adicionarMultaNaTabela(multa, nomeMorador) {
     // Evento de exclusão
     linha.querySelector(".excluir").addEventListener("click", () => {
         if (confirm("Tem certeza que deseja excluir esta multa?")) {
-            fetch(`http://localhost:8080/multas/${multa.id}`, {
+            fetch(`https://back-endbigcondominios-production.up.railway.app/multas/${multa.id}`, {
                 method: "DELETE"
             })
             .then(res => {
@@ -109,7 +109,7 @@ function adicionarMultaNaTabela(multa, nomeMorador) {
     statusSelect.addEventListener("change", () => {
         const novoStatus = statusSelect.value;
 
-        fetch(`http://localhost:8080/multas/${multa.id}/status`, {
+        fetch(`https://back-endbigcondominios-production.up.railway.app/multas/${multa.id}/status`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ status: novoStatus })
@@ -137,7 +137,7 @@ function adicionarMultaNaTabela(multa, nomeMorador) {
 }
 
 function carregarMultas() {
-    fetch("http://localhost:8080/multas")
+    fetch("https://back-endbigcondominios-production.up.railway.app/multas")
         .then(res => {
             if (!res.ok) throw new Error("Erro ao buscar multas");
             return res.json();

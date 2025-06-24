@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", listarMoradores);
 
 function listarMoradores() {
-  fetch("http://localhost:8080/morador")
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador")
     .then(res => res.json())
     .then(moradores => {
       const tbody = document.getElementById("corpoTabelaMoradores");
@@ -24,7 +24,7 @@ function listarMoradores() {
 function cancelarMorador(id) {
   if (!confirm("Deseja cancelar o cadastro?")) return;
 
-  fetch(`http://localhost:8080/api/moradores/${id}/cancelar`, {
+  fetch(`https://back-endbigcondominios-production.up.railway.app/api/moradores/${id}/cancelar`, {
     method: "POST"
   }).then(() => listarReservas());
 }

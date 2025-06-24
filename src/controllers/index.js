@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let chartInstance = null;
 
 function listarPagamentos() {
-    fetch("http://localhost:8080/pagamentos/completo")
+    fetch("https://back-endbigcondominios-production.up.railway.app/pagamentos/completo")
         .then(res => {
             if (!res.ok) throw new Error("Erro ao buscar dados");
             return res.json();
@@ -85,7 +85,7 @@ function listarPagamentos() {
 }
 
 function carregarReservasFuturas() {
-  fetch("http://localhost:8080/reservas/futuras")
+  fetch("https://back-endbigcondominios-production.up.railway.app/reservas/futuras")
     .then(res => res.json())
     .then(reservas => {
       const ul = document.getElementById("listaReservasIndex");

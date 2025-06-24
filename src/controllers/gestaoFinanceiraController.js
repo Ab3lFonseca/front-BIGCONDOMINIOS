@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 let chartInstance = null;
 
 function listarPagamentos() {
-    fetch("http://localhost:8080/pagamentos/completo")
+    fetch("https://back-endbigcondominios-production.up.railway.app/pagamentos/completo")
         .then(res => {
             if (!res.ok) throw new Error("Erro ao buscar dados");
             return res.json();
@@ -131,7 +131,7 @@ function registrarPagamento() {
         formaPagamento: "dinheiro"
     };
 
-    fetch("http://localhost:8080/pagamentos", {
+    fetch("https://back-endbigcondominios-production.up.railway.app/pagamentos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(pagamento)
@@ -159,7 +159,7 @@ function mostrarNotificacao(mensagem) {
 }
 
 function carregarMoradores() {
-  fetch("http://localhost:8080/morador")
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador")
     .then(res => res.json())
     .then(moradores => {
       const select = document.getElementById("moradorSelect");

@@ -58,7 +58,7 @@ function cadastrarMorador() {
     telefone: telefone
   };
 
-  fetch("http://localhost:8080/morador", {
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(morador)
