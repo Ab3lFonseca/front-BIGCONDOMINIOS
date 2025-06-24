@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agendamento de Áreas - BigCondomínios</title>
-    <link rel="stylesheet" href="/BigCondominios-frontend/public/styles/agendamentoArea.css"/>
-    <link rel="stylesheet" href="/BigCondominios-frontend/public/styles/index.css">
+    <link rel="stylesheet" href="/public/styles/agendamentoArea.css"/>
+    <link rel="stylesheet" href="/public/styles/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <script>
   window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
@@ -18,7 +18,7 @@
   <main class="content">
         <header id="navbar"></header>
     <script>
-        fetch('/BigCondominios-frontend/src/pages/navbar.html')
+        fetch('/src/pages/navbar.html')
             .then(response => response.text())
             .then(data => document.getElementById('navbar').innerHTML = data);
     </script>
@@ -65,8 +65,8 @@
         </section>
     </main>
 
-    <script src="/BigCondominios-frontend/src/controllers/areaComumController.js"></script>
-    <script src="/BigCondominios-frontend/src/controllers/navbar.js"></script>
+    <script src="/src/controllers/areaComumController.js"></script>
+    <script src="/src/controllers/navbar.js"></script>
 </body>
 
 </html>

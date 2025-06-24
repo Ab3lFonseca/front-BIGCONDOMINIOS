@@ -1,4 +1,4 @@
-fetch('/BigCondominios-frontend/src/pages/navbar.html')
+fetch('/src/pages/navbar.html')
     .then(response => response.text())
     .then(data => {
         const navbar = document.getElementById('navbar');
