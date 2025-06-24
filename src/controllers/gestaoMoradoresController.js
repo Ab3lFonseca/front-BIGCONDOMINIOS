@@ -1,7 +1,14 @@
 document.addEventListener("DOMContentLoaded", listarMoradores);
 
 function listarMoradores() {
-  fetch("https://back-endbigcondominios-production.up.railway.app/morador")
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
+
     .then(res => res.json())
     .then(moradores => {
       const tbody = document.getElementById("corpoTabelaMoradores");

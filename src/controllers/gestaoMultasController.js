@@ -5,7 +5,13 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
     function carregarMoradores() {
-        fetch("https://back-endbigcondominios-production.up.railway.app/morador")
+        fetch("https://back-endbigcondominios-production.up.railway.app/morador",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
             .then(res => res.json())
             .then(moradores => {
         const select = document.getElementById("morador");
@@ -137,7 +143,13 @@ function adicionarMultaNaTabela(multa, nomeMorador) {
 }
 
 function carregarMultas() {
-    fetch("https://back-endbigcondominios-production.up.railway.app/multas")
+    fetch("https://back-endbigcondominios-production.up.railway.app/multas",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
         .then(res => {
             if (!res.ok) throw new Error("Erro ao buscar multas");
             return res.json();

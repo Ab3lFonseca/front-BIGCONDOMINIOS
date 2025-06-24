@@ -45,7 +45,13 @@ function validarDataReserva() {
 }
 
 function carregarAreas() {
-    fetch("https://back-endbigcondominios-production.up.railway.app/area-comum")
+    fetch("https://back-endbigcondominios-production.up.railway.app/area-comum",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
         .then(res => res.json())
         .then(areas => {
             const select = document.getElementById("areaSelect");
@@ -59,7 +65,13 @@ function carregarAreas() {
 }
 
 function listarReservas() {
-    fetch("https://back-endbigcondominios-production.up.railway.app/reservas/futuras")
+    fetch("https://back-endbigcondominios-production.up.railway.app/reservas/futuras",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
         .then(res => res.json())
         .then(reservas => {
             const tbody = document.getElementById("corpoTabelaReservas");
@@ -132,7 +144,13 @@ function cancelarReserva(id) {
 }
 
 function carregarMoradores() {
-  fetch("https://back-endbigcondominios-production.up.railway.app/morador")
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador",{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
     .then(res => res.json())
     .then(moradores => {
       const select = document.getElementById("moradorSelect");
