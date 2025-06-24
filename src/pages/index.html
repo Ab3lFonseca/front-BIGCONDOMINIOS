@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIGCONDOMÍNIOS</title>
+    <link rel="stylesheet" href="/BigCondominios-frontend/public/styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+
+<body>
+    <div class="content">
+        <header id="navbar"></header>
+
+        <script>
+            fetch('/BigCondominios-frontend/src/pages/navbar.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('navbar').innerHTML = data);
+        </script>
+
+        <div class="divDashboardPrincipal" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; padding: 20px;">
+            
+            <!-- Áreas Agendadas -->
+            <article class="avisosRapidos" style="flex: 1; min-width: 300px; max-width: 400px;">
+                <h1>Áreas Agendadas</h1>
+                <img src="https://i.pinimg.com/736x/3e/da/1d/3eda1dea8938ccad496796df932e559c.jpg" alt="Imagem área" style="width: 100%; border-radius: 10px; margin-bottom: 10px;">
+                    <div style="background: #f7f9fc; padding: 10px; border-radius: 8px;">
+                        <ul id="listaReservasIndex" style="list-style: none; padding: 0; font-size: 14px; line-height: 1.6;"></ul>
+                    </div>
+            </article>
+
+            <!-- Dashboard Financeiro -->
+            <div class="dashboardFinanceiro" style="flex: 1; min-width: 300px; max-width: 600px;">
+                <h2 style="text-align: center;">Dashboard Financeiro</h2>
+                <canvas id="graficoFinanceiro"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/BigCondominios-frontend/src/controllers/index.js"></script>
+    <script src="/BigCondominios-frontend/src/controllers/navbar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestão Financeira - BigCondomínios</title>
+  <link rel="stylesheet" href="/BigCondominios-frontend/public/styles/gestaoFinanceiraStyle.css" />
+  <link rel="stylesheet" href="/BigCondominios-frontend/public/styles/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script>
+  window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+</script>
+<script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+
+<body>
+  <main class="content">
+
+        <header id="navbar"></header>
+    
+    <script>
+        fetch('/BigCondominios-frontend/src/pages/navbar.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('navbar').innerHTML = data);
+    </script>
+    <!-- Seção de Gestão Financeira -->
+    <section class="secaoFinanceira">
+      <h2>Registrar Pagamento</h2>
+      <div class="formPagamento">
+        <select id="moradorSelect">
+          <option value="">Selecione um morador</option>
+        </select>
+        <input type="number" step="0.01" id="valorPagamento" placeholder="Valor (R$)" />
+        <input type="date" id="dataPagamento" />
+        <button onclick="registrarPagamento()">Registrar</button>
+      </div>
+
+      <h2>Pagamentos Registrados</h2>
+      <table class="tabelaPagamentos">
+        <thead>
+          <tr>
+            <th>Morador</th>
+            <th>Valor</th>
+            <th>Data</th>
+          </tr>
+        </thead>
+        <tbody id="corpoTabelaPagamentos">
+          <!-- Preenchido via JavaScript -->
+        </tbody>
+      </table>
+
+      <h2>Dashboard Financeiro</h2>
+      <div style="max-width:700px;margin:auto;">
+        <canvas id="graficoFinanceiro"></canvas>
+      </div>
+    </section>
+  </main>
+  <div id="notificacaoSucesso">Pagamento registrado com sucesso!</div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="/BigCondominios-frontend/src/controllers/gestaoFinanceiraController.js"></script>
+  <script src="/BigCondominios-frontend/src/controllers/navbar.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,123 @@
+.secaoMultas {
+    width: 90%;
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.secaoMultas h2 {
+    text-align: center;
+    color: #004Bad;
+    margin-bottom: 20px;
+}
+
+.tabelaMultas {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabelaMultas th, .tabelaMultas td {
+    padding: 12px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.tabelaMultas th {
+    background-color: #e1e8ff;
+}
+
+.tabelaMultas button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+.tituloMultas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.botoesAcoes {
+    display: flex;
+    gap: 10px;
+}
+
+.btnAcao {
+    padding: 6px 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+    transition: background 0.3s ease;
+}
+.tabelaResponsiva {
+    width: 100%;
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+    .tabelaMultas th, .tabelaMultas td {
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .btnAcao {
+        font-size: 14px;
+        padding: 4px 8px;
+    }
+}
+.formularioMulta {
+    background: #f9f9f9;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 12px;
+    width: 90%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.formularioMulta h3 {
+    margin-bottom: 15px;
+    color: #004Bad;
+}
+
+.formularioMulta form {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
+}
+
+.formularioMulta label {
+    flex: 1 1 100px;
+}
+
+.formularioMulta input,
+.formularioMulta select {
+    flex: 2 1 200px;
+    padding: 8px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.botoesFormulario {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+
+.btnAcao.adicionar { background-color: #C8A2C8; }
+.btnAcao.alterar   { background-color: #C8A2C8; color: black; }
+.btnAcao.excluir   { background-color: #C8A2C8; }
+
+.tabelaMultas .pagar { background-color: #28a745; }
+.tabelaMultas .contestar { background-color: #ffc107; }
+.tabelaMultas .cancelar { background-color: #dc3545; }
