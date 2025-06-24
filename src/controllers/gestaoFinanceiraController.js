@@ -3,6 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   listarPagamentos();
 });
 
+const username = "admin";
+const password = "123456";
+const basicAuth = btoa(`${username}:${password}`);
+
 let chartInstance = null;
 
 function listarPagamentos() {

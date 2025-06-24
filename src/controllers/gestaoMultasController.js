@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("formMulta").addEventListener("submit", adicionarMulta);
 });
 
+const username = "admin";
+const password = "123456";
+const basicAuth = btoa(`${username}:${password}`);
+
     function carregarMoradores() {
         fetch("https://back-endbigcondominios-production.up.railway.app/morador",{
 

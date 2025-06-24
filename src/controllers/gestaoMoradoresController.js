@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", listarMoradores);
 
+const username = "admin";
+const password = "123456";
+const basicAuth = btoa(`${username}:${password}`);
+
 function listarMoradores() {
   fetch("https://back-endbigcondominios-production.up.railway.app/morador",{
 

@@ -1,3 +1,7 @@
+
+const username = "admin";
+const password = "123456";
+const basicAuth = btoa(`${username}:${password}`);
 function cadastrarMorador() {
   const nomeEl = document.getElementById("nomeMorador");
   const cpfEl = document.getElementById("cpfMorador");
