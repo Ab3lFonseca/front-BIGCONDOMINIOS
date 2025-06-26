@@ -21,22 +21,43 @@ function listarMoradores() {
       moradores.forEach(m => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-              <div>${m.id}</div>
-              <div>${m.nome}</div>
-              <div>${m.bloco}</div>
-              <div>${m.apartamento}</div>
-              <div>${m.telefone}</div>
-              <div><div class = 'acaoGestao'><i class="fa-solid fa-gear engrenagem"></i>  <i class="fa-solid fa-trash lixo"></i></div></div>
+              <td>${m.id}</td>
+              <td>${m.nome}</td>
+              <td>${m.bloco}</td>
+              <td>${m.apartamento}</td>
+              <td>${m.telefone}</td>
             `;
         tbody.appendChild(tr);
       });
     });
 }
 
-function cancelarMorador(id) {
-  if (!confirm("Deseja cancelar o cadastro?")) return;
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('lixo')) {
+    const linha = event.target.closest('tr'); // pega a linha inteira
+    const id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
+    
+    if (confirm(`Deseja excluir o morador com ID ${id}?`)) {
+      excluirMorador(id);
+    }
+  }
+});
 
-  fetch(`https://back-endbigcondominios-production.up.railway.app/api/moradores/${id}/cancelar`, {
-    method: "POST"
-  }).then(() => listarReservas());
+function excluirMorador(id) {
+  console.log("Excluindo morador com ID:", id);
+  // Aqui você chama a lógica/endpoint de exclusão
 }
+
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('engrenagem')) {
+    const linha = event.target.closest('tr'); // pega a linha inteira
+    const id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
+    carregarCadastro(id);
+  }
+});
+
+function carregarCadastro(id) {
+  window.location.href = `/src/pages/cadastro.html?id=${id}`;
+  // Aqui você chama a lógica/endpoint de exclusão
+}
+

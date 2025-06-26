@@ -12,7 +12,10 @@
     color: #004Bad;
     margin-bottom: 20px;
 }
-
+#corpoTabelaMoradores{
+    overflow: auto;
+    max-height: 400px;
+}
 .formMorador {
     display: flex;
     flex-wrap: wrap;
@@ -42,10 +45,6 @@
     border-collapse: collapse;
 }
 
-#corpoTabelaMoradores{
-    overflow: scroll;
-}
-
 .tabelaMoradores th,
 .tabelaMoradores td {
     padding: 10px;
@@ -55,4 +54,21 @@
 
 .tabelaMoradores th {
     background-color: #e1e8ff;
+}
+.tabelaContainer {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Para fixar o cabeçalho (opcional) */
+.tabelaContainer table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tabelaContainer thead th {
+    position: sticky;
+    top: 0;
+    background-color: #e1e8ff;
+    z-index: 1;
 }

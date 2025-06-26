@@ -38,9 +38,9 @@ const validators = {
   cpf: validarCPF,
   telefone: validarTelefone,
   email: validarEmail,
+  senha: validarSenha,
   apartamento: validarApartamento,
   bloco: validarBloco,
-  senha: validarSenha,
 };
 
 const mensagensErro = {
