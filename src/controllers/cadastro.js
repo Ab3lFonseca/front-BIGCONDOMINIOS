@@ -154,3 +154,7 @@ function validarBloco(bloco) {
 function validarSenha(senha) {
   return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&\[\]{}()#^~+=;:<>.,_-])[A-Za-z\d@$!%*?&\[\]{}()#^~+=;:<>.,_-]{8,}$/.test(senha);
 }
+
+// Exemplo para src/pages/cadastro.js
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');

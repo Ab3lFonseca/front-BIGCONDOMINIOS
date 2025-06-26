@@ -13,14 +13,8 @@ function redirecionar(event) {
         const senha = document.getElementById("senha").value;
 
         if (email === "admin" && senha === "123456") {
-            email = "";
-            senha = "";
             return true;
         }
         alert("Email ou senha inválidos.");
         return false;
-    }
-
-    function retornarLogin(){
-        return isLogado;
     }

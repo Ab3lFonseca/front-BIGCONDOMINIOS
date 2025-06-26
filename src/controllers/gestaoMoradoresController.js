@@ -44,8 +44,21 @@ document.addEventListener('click', function (event) {
 });
 
 function excluirMorador(id) {
-  console.log("Excluindo morador com ID:", id);
-  // Aqui você chama a lógica/endpoint de exclusão
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador/"+id, {
+
+    method: "DELETE",
+    headers: {
+      "Authorization": `Basic ${btoa(basicAuth)}`
+    }
+    
+  })
+  .then(() => {
+    alert("Morador excluído com sucesso!");
+    listarMoradores(); // Atualiza a lista de moradores
+  })
+  .catch(error => {
+    alert("Erro ao excluir morador: " + error.message);
+  });
 }
 
 document.addEventListener('click', function (event) {
@@ -58,6 +71,25 @@ document.addEventListener('click', function (event) {
 
 function carregarCadastro(id) {
   window.location.href = `/src/pages/cadastro.html?id=${id}`;
+  if (id) {
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador/"+id, {
+
+    method: "GET",
+    headers: {
+      "Authorization": `Basic ${btoa(basicAuth)}`
+    }
+    
+  })
+  .then(res => res.json())
+  .then(morador => {
+    // Preencha os campos do formulário com os dados recebidos
+    document.getElementById('nome').value = morador.nome;
+    document.getElementById('bloco').value = morador.bloco;
+    document.getElementById('apartamento').value = morador.apartamento;
+    document.getElementById('telefone').value = morador.telefone;
+    // ...adicione outros campos conforme necessário
+  });
+}
   // Aqui você chama a lógica/endpoint de exclusão
 }
 
