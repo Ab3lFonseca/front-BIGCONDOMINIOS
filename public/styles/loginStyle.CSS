@@ -32,7 +32,7 @@ h1 {
   color: #333;
 }
 
-input[type="email"],
+input[type="text"],
 input[type="password"] {
   width: 95%;
   padding: 12px;

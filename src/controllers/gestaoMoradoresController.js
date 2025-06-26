@@ -32,10 +32,32 @@ function listarMoradores() {
     });
 }
 
-function cancelarMorador(id) {
-  if (!confirm("Deseja cancelar o cadastro?")) return;
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('lixo')) {
+    const linha = event.target.closest('tr'); // pega a linha inteira
+    const id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
+    
+    if (confirm(`Deseja excluir o morador com ID ${id}?`)) {
+      excluirMorador(id);
+    }
+  }
+});
 
-  fetch(`https://back-endbigcondominios-production.up.railway.app/api/moradores/${id}/cancelar`, {
-    method: "POST"
-  }).then(() => listarReservas());
+function excluirMorador(id) {
+  console.log("Excluindo morador com ID:", id);
+  // Aqui você chama a lógica/endpoint de exclusão
 }
+
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('engrenagem')) {
+    const linha = event.target.closest('tr'); // pega a linha inteira
+    const id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
+    carregarCadastro(id);
+  }
+});
+
+function carregarCadastro(id) {
+  window.location.href = `/src/pages/cadastro.html?id=${id}`;
+  // Aqui você chama a lógica/endpoint de exclusão
+}
+
