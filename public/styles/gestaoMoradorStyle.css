@@ -42,6 +42,10 @@
     border-collapse: collapse;
 }
 
+#corpoTabelaMoradores{
+    overflow: scroll;
+}
+
 .tabelaMoradores th,
 .tabelaMoradores td {
     padding: 10px;
