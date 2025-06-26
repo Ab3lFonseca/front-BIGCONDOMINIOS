@@ -27,7 +27,7 @@ function listarMoradores() {
               <td>${m.apartamento}</td>
               <td>${m.telefone}</td>
               <td>
-            <div class='acaoGestao'>
+            <div class="acaoGestao">
               <i class="fa-solid fa-gear engrenagem"></i>
               <i class="fa-solid fa-trash lixo" ></i>
             </div>
