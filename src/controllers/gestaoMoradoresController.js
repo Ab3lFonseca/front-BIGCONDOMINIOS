@@ -26,6 +26,12 @@ function listarMoradores() {
               <td>${m.bloco}</td>
               <td>${m.apartamento}</td>
               <td>${m.telefone}</td>
+              <td>
+            <div class='acaoGestao'>
+              <i class="fa-solid fa-gear engrenagem"></i>
+              <i class="fa-solid fa-trash lixo" ></i>
+            </div>
+          </td>
             `;
         tbody.appendChild(tr);
       });
@@ -48,7 +54,7 @@ function excluirMorador(id) {
 
     method: "DELETE",
     headers: {
-      "Authorization": `Basic ${btoa(basicAuth)}`
+      "Authorization": `Basic ${basicAuth}`
     }
     
   })
