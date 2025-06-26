@@ -19,8 +19,8 @@
             <img src="/assets/logoApp.png" alt="Imagem de Prédio" class="top-image" />
             <h1>BIGCONDOMÍNIOS</h1>
          <form onsubmit="return redirecionar(event)">
-            <input type="email" placeholder="Digite seu email" required />
-            <input type="password" placeholder="Digite sua senha" required />
+            <input type="text" placeholder="Digite seu Usuario" required id="usuario"/>
+            <input type="password" placeholder="Digite sua senha" required id="senha"/>
             <a href="#" class="forgot-password">Esqueceu sua senha?</a>
             <button type="submit" class="login-button">Acessar</button>
          </form>
@@ -28,15 +28,6 @@
         </div>
     </div>
 
-
-    <script>
-    function redirecionar(event) {
-        event.preventDefault(); // impede o envio padrão
-        // Aqui você pode validar os dados ou simular login
-        window.location.href = "index.html"; // redireciona
-        return false;
-    }
-    </script>
-
 </body>
+<script src="/src/controllers/loginController.js"></script>
 </html>
