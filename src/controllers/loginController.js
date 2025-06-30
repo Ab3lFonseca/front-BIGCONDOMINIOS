@@ -11,7 +11,7 @@ function redirecionar(event) {
 function dadosValidos() {
     const email = document.getElementById("usuario").value;
     const senha = document.getElementById("senha").value;
-    const adminValido = false;
+    let adminValido = false;
     if(email == "admin" && senha == "123456")
         return true;
     

@@ -33,6 +33,9 @@ header {
     margin-right: 5px;
 }
 
+
+
+
 .menuLinks a {
     text-decoration: none;
 }
@@ -237,6 +240,7 @@ background-color: transparent;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #333;
     border-radius: 8px;
     transition: background-color 0.2s ease;
     cursor: auto;
