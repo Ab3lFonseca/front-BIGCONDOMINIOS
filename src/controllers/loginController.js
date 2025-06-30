@@ -11,15 +11,16 @@ function redirecionar(event) {
 function dadosValidos() {
     const email = document.getElementById("usuario").value;
     const senha = document.getElementById("senha").value;
-    const adminValido = true;
-    if(!email == "admin" || !senha == "123456") {
+    const adminValido = false;
+    if(email == "admin" && senha == "123456")
+        return true;
+    
     // Busca admins cadastrados no localStorage
     let admins = JSON.parse(localStorage.getItem('admins')) || [];
 
     // Verifica se existe algum admin com email e senha correspondentes
      adminValido = admins.some(admin => admin.email === email && admin.senha === senha );
-    }
-    
+
     if (adminValido) {
         return true;
     }
