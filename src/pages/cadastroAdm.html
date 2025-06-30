@@ -4,53 +4,7 @@
   <meta charset="UTF-8">
   <title>Cadastrar Administrador</title>
   <link rel="stylesheet" href="/src/styles/login.css">
-  <style>
-    /* Estilo simples, pode ser removido se já houver um CSS global */
-    .cadastro-container {
-      max-width: 350px;
-      margin: 60px auto;
-      padding: 32px 24px;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .cadastro-container h2 {
-      text-align: center;
-      margin-bottom: 16px;
-    }
-    .cadastro-container input {
-      width: 100%;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    .cadastro-container button {
-      width: 100%;
-      padding: 10px;
-      background: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    .cadastro-container button:hover {
-      background: #0056b3;
-    }
-    .cadastro-container .mensagem {
-      text-align: center;
-      color: green;
-      margin-top: 10px;
-    }
-    .cadastro-container .erro {
-      text-align: center;
-      color: red;
-      margin-top: 10px;
-    }
-  </style>
+    
 </head>
 <body>
   <div class="cadastro-container">
@@ -63,7 +17,7 @@
     </form>
     <div class="mensagem" id="mensagem"></div>
     <div class="erro" id="erro"></div>
-    <a href="/src/pages/login.html" style="text-align:center;display:block;margin-top:10px;">Voltar ao Login</a>
+    <a href="/src/pages/index.html" style="text-align:center;display:block;margin-top:10px;">Voltar ao Sistema</a>
   </div>
   <script>
     document.getElementById('formCadastroAdm').addEventListener('submit', function(e) {

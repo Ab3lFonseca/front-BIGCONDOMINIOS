@@ -21,7 +21,7 @@ function listarMoradores() {
       moradores.forEach(m => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-              <td>${m.id}</td>
+              <td id="idMorador">${m.id}</td>
               <td>${m.nome}</td>
               <td>${m.bloco}</td>
               <td>${m.apartamento}</td>

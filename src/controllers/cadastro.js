@@ -160,14 +160,27 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
 function carregarDados() {
-fetch(`https://back-endbigcondominios-production.up.railway.app/morador/${idMorador}`,{
+  idMorador = document.getElementById('idMorador').value;
+  if (!idMorador) {
+    alert("ID do morador não informado.");
+    return;
+  }
+  fetch(`https://back-endbigcondominios-production.up.railway.app/morador/${idMorador}`, {
 
-        method: "GET",
-        headers: {
-            "Authorization": `Basic ${basicAuth}`
-        }
-    })
+    method: "GET",
+    headers: {
+      "Authorization": `Basic ${basicAuth}`
+    }
+  })
 
     .then(res => res.json())
+    .then((morador) => {
+      document.getElementById('nome').value = morador.nome;
+      document.getElementById('bloco').value = morador.bloco;
+      document.getElementById('apartamento').value = morador.apartamento;
+      document.getElementById('telefone').value = morador.telefone;
+      document.getElementById('email').value = morador.email;
+      document.getElementById('cpf').value = morador.CPF;
+    });
 
 }//

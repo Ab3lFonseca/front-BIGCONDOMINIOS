@@ -16,12 +16,12 @@
 
 <body>
     <div class="content">
-       <header id="navbar"></header>
-    <script>
-        fetch('/src/pages/navbar.html')
-            .then(response => response.text())
-            .then(data => document.getElementById('navbar').innerHTML = data);
-    </script>
+        <header id="navbar"></header>
+        <script>
+            fetch('/src/pages/navbar.html')
+                .then(response => response.text())
+                .then(data => document.getElementById('navbar').innerHTML = data);
+        </script>
 
         <div class="cadastro-container">
             <div class="cadastro-box">
@@ -38,7 +38,7 @@
                     </div>
                     <input type="tel" id="telefone" placeholder="Telefone" required />
 
-                    <button type="submit" class="cadastro-button" onclick="">Cadastrar</button>
+                    <button type="submit" class="cadastro-button" onclick="">Confirmar</button>
                 </form>
             </div>
         </div>
@@ -46,6 +46,7 @@
 
     <script src="/src/controllers/cadastro.js"></script>
     <script src="/src/controllers/navbar.js"></script>
+    <script src="/src/controllers/cadastro.js"></script>
 </body>
 
 </html>
