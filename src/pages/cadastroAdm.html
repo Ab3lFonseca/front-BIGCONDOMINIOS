@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <title>Cadastrar Administrador</title>
-  <link rel="stylesheet" href="/src/styles/login.css">
-    
+  
+  <link rel="stylesheet" href="/public/styles/cadastroAdm.css">
+  <link rel="stylesheet" href="/public/styles/index.css">
 </head>
+
 <body>
+  <header id="navbar"></header>
+
+  <script>
+    fetch('/src/pages/navbar.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('navbar').innerHTML = data);
+  </script>
+
   <div class="cadastro-container">
+    <img src="/assets/logoApp.png" alt="Logo">
     <h2>Cadastrar Administrador</h2>
     <form id="formCadastroAdm">
       <input type="text" id="nome" placeholder="Nome" required>
@@ -17,10 +29,9 @@
     </form>
     <div class="mensagem" id="mensagem"></div>
     <div class="erro" id="erro"></div>
-    <a href="/src/pages/index.html" style="text-align:center;display:block;margin-top:10px;">Voltar ao Sistema</a>
   </div>
   <script>
-    document.getElementById('formCadastroAdm').addEventListener('submit', function(e) {
+    document.getElementById('formCadastroAdm').addEventListener('submit', function (e) {
       e.preventDefault();
       const nome = document.getElementById('nome').value;
       const email = document.getElementById('email').value;
@@ -43,5 +54,7 @@
       }
     });
   </script>
+  <script src="/src/controllers/navbar.js"></script>
 </body>
+
 </html>

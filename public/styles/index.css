@@ -96,6 +96,12 @@ a {
 .logoNavbar img {
     height: 70px;
 }
+.logoNavbar p {
+    font-size: 1em;
+    color: #007bff;
+    margin-top: -5px;
+}
+
 
 /* Menu padrão */
 .menuLinks {
@@ -251,4 +257,9 @@ a {
     background-color:transparent;
     border: none;
     text-align: center;
+}
+
+#menu *{
+background-color: transparent;
+
 }
