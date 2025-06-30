@@ -23,3 +23,28 @@ function toggleMenu() {
         menu.classList.toggle("open");
     }
 }
+
+function toggleDropdown() {
+  document.getElementById("minhaContaDropdown").classList.toggle("show");
+}
+
+// Fecha o dropdown se clicar fora dele
+window.onclick = function(event) {
+  if (!event.target.matches('.minhaContaBtn') && !event.target.closest('.minhaContaBtn')) {
+    var dropdowns = document.getElementsByClassName("minhaContaDropdown");
+    for (var i = 0; i < dropdowns.length; i++) {
+      dropdowns[i].classList.remove('show');
+    }
+  }
+}
+
+function cadastrarAdmin() {
+  // Redireciona para a página de cadastro de admin
+  window.location.href = "/src/pages/cadastroAdmin.html";
+}
+
+function logout() {
+  // Limpe o localStorage/sessionStorage se necessário
+  // Redirecione para a página de login
+  window.location.href = "/src/pages/login.html";
+}

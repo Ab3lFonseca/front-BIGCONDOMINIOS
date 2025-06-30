@@ -42,10 +42,24 @@
         <p>Cadastrar Morador</p>
       </div>
     </a>
-    <a href="/src/pages/login.html" class="minhaConta" id="minhaConta">
+    <div class="minhaConta" id="minhaConta">
       <img src="/assets/perfilUsuario.jfif" alt="Foto do Usuário">
-      <span>Minha Conta</span>
-    </a>
+      <select id="menu" name="Minha Conta" onchange="navegar()">
+        <option>Minha Conta</option>
+        <option value="/src/pages/cadastroAdm.html" class="background-color: transparent;">Cadastrar Adm</option>
+        <option value="/src/pages/login.html" class="background-color: transparent;">Logout</option>
+      </select>
+    </div>
 
   </div>
 </div>
+<script>
+    function navegar() {
+      const menu = document.getElementById("menu");
+      const escolha = menu.value;
+
+      if (escolha) {
+        window.location.href = escolha; // Redireciona para a página selecionada
+      }
+    }
+  </script>

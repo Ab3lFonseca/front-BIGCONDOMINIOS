@@ -158,3 +158,16 @@ function validarSenha(senha) {
 // Exemplo para src/pages/cadastro.js
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
+
+function carregarDados() {
+fetch(`https://back-endbigcondominios-production.up.railway.app/morador/${idMorador}`,{
+
+        method: "GET",
+        headers: {
+            "Authorization": `Basic ${basicAuth}`
+        }
+    })
+
+    .then(res => res.json())
+
+}//
