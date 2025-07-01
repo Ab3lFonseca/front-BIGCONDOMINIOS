@@ -243,12 +243,21 @@ function carregarDados(moradorId) {
   })
     .then(res => res.json())
     .then((morador) => {
-      document.getElementById('nomeMorador')?.value = morador.nome || '';
-      document.getElementById('email')?.value = morador.email || '';
-      document.getElementById('apartamentoMorador')?.value = morador.apartamento || '';
-      document.getElementById('blocoMorador')?.value = morador.bloco || '';
-      document.getElementById('telefoneMorador')?.value = morador.telefone || '';
-    })
+  const nomeInput = document.getElementById('nomeMorador');
+  if (nomeInput) nomeInput.value = morador.nome;
+
+  const emailInput = document.getElementById('email');
+  if (emailInput) emailInput.value = morador.email;
+
+  const apartamentoInput = document.getElementById('apartamentoMorador');
+  if (apartamentoInput) apartamentoInput.value = morador.apartamento;
+
+  const blocoInput = document.getElementById('blocoMorador');
+  if (blocoInput) blocoInput.value = morador.bloco;
+
+  const telefoneInput = document.getElementById('telefoneMorador');
+  if (telefoneInput) telefoneInput.value = morador.telefone;
+})
     .catch(err => {
       console.error("Erro ao carregar dados:", err);
       alert("Erro ao carregar dados do morador.");

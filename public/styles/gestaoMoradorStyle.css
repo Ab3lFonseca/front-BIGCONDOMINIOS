@@ -12,10 +12,7 @@
     color: #004Bad;
     margin-bottom: 20px;
 }
-#corpoTabelaMoradores{
-    overflow: auto;
-    max-height: 400px;
-}
+
 .formMorador {
     display: flex;
     flex-wrap: wrap;
