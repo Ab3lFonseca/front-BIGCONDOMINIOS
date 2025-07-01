@@ -1,5 +1,5 @@
 const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+const id = document.getElementById("idMorador") ? document.getElementById("idMorador").innerText : params.get('id');
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
@@ -59,8 +59,12 @@ function atualizarMorador() {
         alert("Preencha todos os campos obrigatórios!");
         return;
     }
+    if (!id) {
+  alert("ID do morador não foi encontrado. Atualização não pode ser feita.");
+  return;
+}
 
-    fetch(API_URL + `/${id}`, {
+    fetch(API_URL + `/${moradorId}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
