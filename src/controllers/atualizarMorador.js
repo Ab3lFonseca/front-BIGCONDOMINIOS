@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function carregarDados(moradorId) {
     idFunciona= moradorId;
-    fetch(API_URL + `/${moradorId}`, {
+    fetch(API_URL + `/1`, {
         method: "GET",
         headers: {
             "Authorization": `Basic ${BASIC_AUTH}`
