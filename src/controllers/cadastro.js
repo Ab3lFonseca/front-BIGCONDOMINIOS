@@ -249,6 +249,7 @@ function validarSenha(senha) {
 // Exemplo para src/pages/cadastro.js
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
+let idMorador = id ? parseInt(id, 10) : 0; // <-- Adicione esta linha
 
 function carregarDados(moradorId) {
   idMorador = moradorId;
