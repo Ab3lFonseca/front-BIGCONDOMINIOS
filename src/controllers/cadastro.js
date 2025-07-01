@@ -126,7 +126,7 @@ function atualizarMorador() {
 
   // Verifica campos obrigatórios
   for (const [campo, valor] of Object.entries(dados)) {
-    if(campo != 'cpfMorador' || campo != 'senha') 
+    if(campo != 'cpf' && campo != 'senha') 
     if (!valor) {
       alert("Preencha todos os campos!");
       return false;
@@ -135,7 +135,7 @@ function atualizarMorador() {
 
   // Validações específicas
   for (const [campo, validator] of Object.entries(validators)) {
-    if (!validator(dados[campo]) && (campo != 'cpfMorador' || campo != 'senha')) {
+    if (!validator(dados[campo]) && (campo != 'cpf' && campo != 'senha')) {
       alert(mensagensErro[campo]);
       document.getElementById(campos[campo]).value = "";
       document.getElementById(campos[campo]).focus();
