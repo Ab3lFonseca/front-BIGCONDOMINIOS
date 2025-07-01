@@ -112,3 +112,19 @@ input:focus {
   height: 100vh;
   align-items: center;
 }
+.login-redirect {
+  margin-top: 20px;
+  font-size: 0.95em;
+  color: #555;
+  text-align: center;
+}
+
+.login-redirect a {
+  color: #7b1fa2;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.login-redirect a:hover {
+  text-decoration: underline;
+}

@@ -96,3 +96,21 @@ input[type="password"] {
   font-size: 0.9em;
   color: #555;
 }
+.signup-redirect {
+  margin-top: 20px;
+  font-size: 0.95em;
+  color: #555;
+  text-align: center;
+}
+
+.signup-redirect a {
+  color: #7b1fa2;
+  text-decoration: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signup-redirect a:hover {
+  text-decoration: underline;
+}
+
