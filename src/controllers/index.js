@@ -70,19 +70,18 @@ function listarPagamentos() {
         const tr = document.createElement("tr");
 
         // Cor de fundo por tipo
-let estilo = "";
-switch (p.tipo) {
-  case "Gás":
-    estilo = "background-color: #000000; color: #ffffff;";
-    break;
-  case "Água":
-    estilo = "background-color: #e6ccff;";
-    break;
-  case "Energia":
-    estilo = "background-color: #ffffcc;";
-    break;
-}
-tr.setAttribute("style", estilo);
+        let cor = "";
+        switch (p.tipo) {
+          case "Gás":
+            cor = "background-color: #ffebcc;";
+            break;
+          case "Água":
+            cor = "background-color: #cceeff;";
+            break;
+          case "Energia":
+            cor = "background-color: #ffffcc;";
+            break;
+        }
 
         tr.setAttribute("style", cor);
 
