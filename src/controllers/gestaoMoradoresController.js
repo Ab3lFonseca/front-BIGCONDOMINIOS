@@ -69,9 +69,10 @@ function excluirMorador(id) {
 
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('engrenagem')) {
-    const linha = event.target.closest('tr'); // pega a linha inteira
-    const id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
-    carregarDados(id);
+    const linha = event.target.closest('tr');
+    const id = linha.querySelector('td').innerText;
+    // Redireciona para a página de cadastro com o ID na URL
+    window.location.href = `/src/pages/cadastro.html?id=${id}`;
   }
 });
 
