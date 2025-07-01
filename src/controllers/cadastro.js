@@ -231,28 +231,33 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
 function carregarDados(moradorId) {
-  idMorador = moradorId
-  if (!idMorador) {
+  if (!moradorId) {
     alert("ID do morador não informado.");
     return;
   }
-  fetch(API_URL+`/${idMorador}`, {
-
+  fetch(API_URL+`/${moradorId}`, {
     method: "GET",
     headers: {
       "Authorization": `Basic ${basicAuth}`
     }
   })
-
     .then(res => res.json())
     .then((morador) => {
-      idMorador = morador.id;
-      document.getElementById('nomeMorador').value = morador.nome;
-      document.getElementById('email').value = morador.email;
-      document.getElementById('apartamentoMorador').value = morador.apartamento;
-      document.getElementById('blocoMorador').value = morador.bloco;
-      document.getElementById('telefoneMorador').value = morador.telefone;
+      document.getElementById('nomeMorador')?.value = morador.nome || '';
+      document.getElementById('email')?.value = morador.email || '';
+      document.getElementById('apartamentoMorador')?.value = morador.apartamento || '';
+      document.getElementById('blocoMorador')?.value = morador.bloco || '';
+      document.getElementById('telefoneMorador')?.value = morador.telefone || '';
+    })
+    .catch(err => {
+      console.error("Erro ao carregar dados:", err);
+      alert("Erro ao carregar dados do morador.");
     });
-
-}//
+}
 window.carregarDados = carregarDados;
+
+window.addEventListener('DOMContentLoaded', () => {
+  if (id) {
+    carregarDados(id);
+  }
+});
