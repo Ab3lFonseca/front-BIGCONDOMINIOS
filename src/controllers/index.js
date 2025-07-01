@@ -137,32 +137,17 @@ function exportarPDF() {
   const { jsPDF } = window.jspdf;
   const doc = new jsPDF();
 
-  const titulo = document.querySelector('h2').textContent;
+  const titulo = "Dashboard Financeiro";
   doc.setFontSize(16);
   doc.text(titulo, 10, 15);
 
-  // Captura do gráfico
   const graficoCanvas = document.getElementById("graficoFinanceiro");
-  html2canvas(graficoCanvas).then(canvas => {
-    const imgData = canvas.toDataURL("image/png");
-    const imgProps = doc.getImageProperties(imgData);
-    const pdfWidth = doc.internal.pageSize.getWidth() - 20;
-    const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
-    doc.addImage(imgData, 'PNG', 10, 20, pdfWidth, pdfHeight);
+  const imgData = graficoCanvas.toDataURL("image/png");
 
-    // Captura da tabela (opcional)
-    const tabela = document.querySelector(".tabelaPagamentos");
-    html2canvas(tabela).then(tableCanvas => {
-      const tableImg = tableCanvas.toDataURL("image/png");
-      const pageHeight = doc.internal.pageSize.getHeight();
-      const yOffset = 30 + pdfHeight;
+  const pdfWidth = doc.internal.pageSize.getWidth() - 20;
+  const imgProps = { width: graficoCanvas.width, height: graficoCanvas.height };
+  const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
 
-      if (yOffset + 10 < pageHeight) {
-        doc.addPage();
-      }
-
-      doc.addImage(tableImg, 'PNG', 10, 10, pdfWidth, 0);
-      doc.save("dashboard_financeiro.pdf");
-    });
-  });
+  doc.addImage(imgData, 'PNG', 10, 20, pdfWidth, pdfHeight);
+  doc.save("dashboard_financeiro.pdf");
 }
