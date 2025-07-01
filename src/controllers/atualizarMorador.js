@@ -57,7 +57,7 @@ function atualizarMorador() {
     const apartamento = document.getElementById('apartamentoMorador').value.trim();
     const bloco = document.getElementById('blocoMorador').value.trim();
     const telefone = document.getElementById('telefone').value.trim();
-
+    
     if (!nome || !email || !apartamento || !bloco || !telefone) {
         alert("Preencha todos os campos obrigatórios!");
         return;
@@ -67,7 +67,7 @@ function atualizarMorador() {
   return;
 }
 
-    fetch(API_URL + `/${idFunciona}1`, {
+    fetch(API_URL + `/${idMorador}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
