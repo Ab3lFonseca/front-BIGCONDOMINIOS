@@ -1,19 +1,23 @@
 body {
   display: flex;
   flex-direction: column;
+  background-color: rgb(234, 234, 234);
 }
 
 .cadastro-container {
-  max-width: 600px;
-  max-height: 600px;
-  margin: 60px auto;
-  padding: 32px 24px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  height: 80vh;
+}
+
+.cadastro-box{
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  text-align: center;
+  width: 400px;
 }
 
 .cadastro-container img {
@@ -25,28 +29,20 @@ body {
   margin-bottom: 16px;
 }
 
-.cadastro-container input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-top: 5px;
-}
-
 .cadastro-container button {
+  margin-top: 12px;
   width: 100%;
-  padding: 10px;
-  background: #007bff;
-  color: #fff;
+  padding: 12px;
+  background-color: #1a008f;
+  color: white;
   border: none;
-  border-radius: 4px;
-  font-weight: bold;
+  border-radius: 6px;
+  font-size: 1em;
   cursor: pointer;
-  margin-top: 5px;
 }
 
 .cadastro-container button:hover {
-  background: #0056b3;
+  background: #007bff;
 }
 
 .cadastro-container .mensagem {
@@ -60,7 +56,16 @@ body {
   color: red;
   margin-top: 10px;
 }
-a{
+
+a {
   text-decoration: none;
   color: #007bff;
+}
+
+input {
+  width: 95%;
+  padding: 12px;
+  margin: 5px -10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
 }

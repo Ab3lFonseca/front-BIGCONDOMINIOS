@@ -2,15 +2,28 @@
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
+let idMorador = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
-  const botao = document.getElementById("btnCadastrar");
+  const botao = document.getElementById("btnConfirmar");
 
   if (botao) {
-    botao.addEventListener("click", cadastrarMorador);
+    botao.addEventListener("click", validarMetodoSalvar);
   }
 });
 
+function validarMetodoSalvar(){
+
+  if (idMorador > 0)
+    // Se idMorador já estiver definido, chama a função de atualizar
+    atualizarMorador();
+
+  else
+    // Caso contrário, chama a função de cadastrar
+    cadastrarMorador();
+  
+
+}
 
 // Mapeamento de campos de formulário
 const campos = {
@@ -107,6 +120,64 @@ function cadastrarMorador() {
   return false;
 }
 
+//Função para atualizar morador
+function atualizarMorador() {
+   const dados = getFormValues();
+
+  // Verifica campos obrigatórios
+  for (const [campo, valor] of Object.entries(dados)) {
+    if (!valor && campo !== 'cpfMorador') {
+      alert("Preencha todos os campos!");
+      return false;
+    }
+  }
+
+  // Validações específicas
+  for (const [campo, validator] of Object.entries(validators)) {
+    if (!validator(dados[campo]) && campo !== 'cpfMorador') {
+      alert(mensagensErro[campo]);
+      document.getElementById(campos[campo]).value = "";
+      document.getElementById(campos[campo]).focus();
+      return false;
+    }
+  }
+
+  // Envia para a API
+  fetch(API_URL, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Basic ${BASIC_AUTH}`,
+    },
+    body: JSON.stringify({
+      id: idMorador,
+      nome: dados.nome,
+      CPF: dados.cpf,
+      email: dados.email,
+      senha: dados.senha,
+      apartamento: dados.apartamento,
+      bloco: dados.bloco,
+      telefone: dados.telefone,
+    }),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Erro ao atualizar morador.");
+      }
+      return response.json();
+    })
+    .then(() => {
+      alert("Atualizado com sucesso!");
+      limparCampos();
+    })
+    .catch(error => {
+      alert("Erro na atualização: " + error.message);
+    });
+
+  return false;
+
+}
+
 function limparCampos() {
   Object.values(campos).forEach(id => {
     document.getElementById(id).value = "";
@@ -175,12 +246,12 @@ function carregarDados() {
 
     .then(res => res.json())
     .then((morador) => {
-      document.getElementById('nome').value = morador.nome;
-      document.getElementById('bloco').value = morador.bloco;
-      document.getElementById('apartamento').value = morador.apartamento;
-      document.getElementById('telefone').value = morador.telefone;
+      idMorador = morador.id;
+      document.getElementById('nomeMorador').value = morador.nome;
       document.getElementById('email').value = morador.email;
-      document.getElementById('cpf').value = morador.CPF;
+      document.getElementById('apartamentoMorador').value = morador.apartamento;
+      document.getElementById('blocoMorador').value = morador.bloco;
+      document.getElementById('telefoneMorador').value = morador.telefone;
     });
 
 }//

@@ -36,7 +36,7 @@ input[type="text"],
 input[type="password"] {
   width: 95%;
   padding: 12px;
-  margin: 10px -10px;
+  margin: 5px -10px;
   border: 1px solid #ccc;
   border-radius: 6px;
 }
@@ -83,7 +83,7 @@ input[type="password"] {
 }
 
 .login-button:hover {
-  background-color: #160076;
+  background: #007bff;
 }
 
 .google-button img {
