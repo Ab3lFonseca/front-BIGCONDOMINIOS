@@ -73,7 +73,7 @@ document.addEventListener('click', function (event) {
     const linha = event.target.closest('tr');
     const id = linha.querySelector('td').innerText;
     // Redireciona para a página de cadastro com o ID na URL
-    window.location.href = `/src/pages/cadastro.html?id=${id}`;
+    window.location.href = `/src/pages/atualizarMorador.html?id=${id}`;
   }
 });
 
