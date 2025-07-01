@@ -3,6 +3,7 @@ const id = document.getElementById("idMorador") ? document.getElementById("idMor
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
+let idFunciona;
 let cpfMorador = "";
 let senhaMorador = "";
 
@@ -12,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
         window.location.href = "/src/pages/gestaoMoradores.html";
         return;
     }
+    idFunciona=id
     carregarDados(id);
 
     const form = document.getElementById("formAtualizar");
@@ -59,12 +61,12 @@ function atualizarMorador() {
         alert("Preencha todos os campos obrigatórios!");
         return;
     }
-    if (!id) {
+    if (!idFunciona) {
   alert("ID do morador não foi encontrado. Atualização não pode ser feita.");
   return;
 }
 
-    fetch(API_URL + `/${moradorId}`, {
+    fetch(API_URL + `/${idFunciona}`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
