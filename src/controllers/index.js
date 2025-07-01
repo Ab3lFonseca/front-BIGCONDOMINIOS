@@ -25,8 +25,6 @@ function listarPagamentos() {
       return res.json();
     })
     .then(data => {
-      const tbody = document.getElementById("corpoTabelaPagamentos");
-      tbody.innerHTML = "";
 
       // Juntar pagamentos + multas pagas
       const todos = [
@@ -93,7 +91,6 @@ function listarPagamentos() {
           <td>${p.dataPagamento ? new Date(p.dataPagamento).toLocaleDateString("pt-BR") : "-"}</td>
           <td>${p.tipo}</td>
         `;
-        tbody.appendChild(tr);
       });
 
       // --- DASHBOARD ---
