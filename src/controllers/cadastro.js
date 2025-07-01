@@ -126,7 +126,8 @@ function atualizarMorador() {
 
   // Verifica campos obrigatórios
   for (const [campo, valor] of Object.entries(dados)) {
-    if (!valor && campo !== 'cpfMorador') {
+    if(campo != 'cpfMorador' || campo != 'senha') 
+    if (!valor) {
       alert("Preencha todos os campos!");
       return false;
     }
@@ -134,7 +135,7 @@ function atualizarMorador() {
 
   // Validações específicas
   for (const [campo, validator] of Object.entries(validators)) {
-    if (!validator(dados[campo]) && campo !== 'cpfMorador') {
+    if (!validator(dados[campo]) && (campo != 'cpfMorador' || campo != 'senha')) {
       alert(mensagensErro[campo]);
       document.getElementById(campos[campo]).value = "";
       document.getElementById(campos[campo]).focus();
@@ -231,6 +232,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
 function carregarDados(moradorId) {
+  idMorador = moradorId;
   if (!moradorId) {
     alert("ID do morador não informado.");
     return;
@@ -255,7 +257,7 @@ function carregarDados(moradorId) {
   const blocoInput = document.getElementById('blocoMorador');
   if (blocoInput) blocoInput.value = morador.bloco;
 
-  const telefoneInput = document.getElementById('telefoneMorador');
+  const telefoneInput = document.getElementById('telefone');
   if (telefoneInput) telefoneInput.value = morador.telefone;
 })
     .catch(err => {
