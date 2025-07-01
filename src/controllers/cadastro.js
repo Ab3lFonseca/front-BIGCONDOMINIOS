@@ -254,6 +254,7 @@ function validarSenha(senha) {
 
 // Exemplo para src/pages/cadastro.js
 function carregarDados(moradorId) {
+  idMorador = moradorId;
   if (!moradorId) {
     alert("ID do morador não informado.");
     return;
