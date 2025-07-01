@@ -51,7 +51,7 @@ document.addEventListener('click', function (event) {
 });
 
 function excluirMorador(id) {
-  fetch("https://back-endbigcondominios-production.up.railway.app/morador"+id, {
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador/"+id, {
 
     method: "DELETE",
     headers: {
