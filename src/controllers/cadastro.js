@@ -1,4 +1,6 @@
-const BASIC_AUTH = btoa("admin:123456");
+const username = "admin";
+const password = "123456";
+const basicAuth = btoa(`${username}:${password}`);
 
 let idMorador = 0;
 let cpfMorador = "";
