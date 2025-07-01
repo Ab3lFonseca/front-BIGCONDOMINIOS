@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function carregarDados(moradorId) {
+    idFunciona= moradorId;
     fetch(API_URL + `/${moradorId}`, {
         method: "GET",
         headers: {
@@ -66,7 +67,7 @@ function atualizarMorador() {
   return;
 }
 
-    fetch(API_URL + `/${idFunciona}`, {
+    fetch(API_URL + `/${idFunciona}1`, {
         method: "PUT",
         headers: {
             "Content-Type": "application/json",
