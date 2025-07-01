@@ -27,7 +27,7 @@
             <div class="cadastro-box">
                 <img src="/assets/logoApp.png" alt="Imagem de Prédio" class="top-image" />
                 <h1>Cadastro</h1>
-                <form id="formCadastro" onsubmit="return cadastrarMorador(event)">
+                <form onsubmit="return cadastrarMorador(event)">
                     <input type="text" id="nomeMorador" placeholder="Nome completo" required />
                     <input type="text" id="cpfMorador" placeholder="CPF" />
                     <input type="email" id="email" placeholder="E-mail" required />
@@ -39,9 +39,11 @@
                     <input type="tel" id="telefone" placeholder="Telefone" required />
 
                     <button type="submit" class="cadastro-button" id="btnConfirmar" onclick>Confirmar</button>
-                    <div class="signup-redirect" style="margin-top: 20px; font-size: 0.95em; color: #555; text-align: center;">
+                    <div class="signup-redirect"
+                        style="margin-top: 20px; font-size: 0.95em; color: #555; text-align: center;">
                         Já tem conta?
-                        <a href="/src/pages/login.html" style="color: #7b1fa2; text-decoration: none; font-weight: 600;">Faça login aqui</a>
+                        <a href="/src/pages/login.html"
+                            style="color: #7b1fa2; text-decoration: none; font-weight: 600;">Faça login aqui</a>
 
                 </form>
             </div>
@@ -50,7 +52,6 @@
 
     <script src="/src/controllers/cadastro.js"></script>
     <script src="/src/controllers/navbar.js"></script>
-    <script src="/src/controllers/cadastro.js"></script>
 </body>
 
 </html>

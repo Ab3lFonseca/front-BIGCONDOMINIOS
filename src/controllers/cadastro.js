@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function validarMetodoSalvar(){
-
+  console.log(idMorador);
   if (idMorador > 0)
     // Se idMorador já estiver definido, chama a função de atualizar
     atualizarMorador();
