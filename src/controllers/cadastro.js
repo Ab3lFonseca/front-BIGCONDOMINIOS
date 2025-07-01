@@ -172,7 +172,6 @@ function atualizarMorador() {
       Authorization: `Basic ${BASIC_AUTH}`,
     },
     body: JSON.stringify({
-      id: idMorador,
       nome: dados.nome,
       CPF: cpfMorador, // Sempre o antigo
       email: dados.email,
