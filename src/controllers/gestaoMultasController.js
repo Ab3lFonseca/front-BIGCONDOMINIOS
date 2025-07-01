@@ -39,7 +39,7 @@ function adicionarMulta(event) {
     event.preventDefault();
 
     const multa = {
-        morador: parseInt(document.getElementById("morador").value),
+        moradorId: parseInt(document.getElementById("morador").value),
         valor: parseFloat(document.getElementById("valor").value),
         dataOcorrencia: getLocalDateTimeString(),
         dataVencimento: new Date(document.getElementById("dataVencimento").value).toISOString().split(".")[0],
