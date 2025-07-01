@@ -280,7 +280,7 @@ function carregarDados(moradorId) {
   const telefoneInput = document.getElementById('telefone');
   if (telefoneInput) telefoneInput.value = morador.telefone;
 
-  cpfMorador = morador.CPF || ""; // <-- só armazena, não exibe
+  cpfMorador = morador.cpf || ""; // <-- só armazena, não exibe
   senhaMorador = morador.senha || "";
 })
     .catch(err => {
@@ -288,6 +288,7 @@ function carregarDados(moradorId) {
       alert("Erro ao carregar dados do morador.");
     });
 }
+
 window.carregarDados = carregarDados;
 
 window.addEventListener('DOMContentLoaded', () => {
