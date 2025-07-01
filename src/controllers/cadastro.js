@@ -1,3 +1,7 @@
+const params = new URLSearchParams(window.location.search);
+const id = params.get('id');
+let idMorador = id ? parseInt(id, 10) : 0;
+
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
@@ -5,10 +9,12 @@ let cpfMorador = "";
 let senhaMorador = "";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const botao = document.getElementById("btnConfirmar");
-
-  if (botao) {
-    botao.addEventListener("click", validarMetodoSalvar);
+  const form = document.getElementById("formCadastro");
+  if (form) {
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      validarMetodoSalvar();
+    });
   }
 });
 
@@ -247,12 +253,7 @@ function validarSenha(senha) {
 }
 
 // Exemplo para src/pages/cadastro.js
-const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
-let idMorador = id ? parseInt(id, 10) : 0; // <-- Adicione esta linha
-
 function carregarDados(moradorId) {
-  idMorador = moradorId;
   if (!moradorId) {
     alert("ID do morador não informado.");
     return;
@@ -265,24 +266,24 @@ function carregarDados(moradorId) {
   })
     .then(res => res.json())
     .then((morador) => {
-  const nomeInput = document.getElementById('nomeMorador');
-  if (nomeInput) nomeInput.value = morador.nome;
+      const nomeInput = document.getElementById('nomeMorador');
+      if (nomeInput) nomeInput.value = morador.nome;
 
-  const emailInput = document.getElementById('email');
-  if (emailInput) emailInput.value = morador.email;
+      const emailInput = document.getElementById('email');
+      if (emailInput) emailInput.value = morador.email;
 
-  const apartamentoInput = document.getElementById('apartamentoMorador');
-  if (apartamentoInput) apartamentoInput.value = morador.apartamento;
+      const apartamentoInput = document.getElementById('apartamentoMorador');
+      if (apartamentoInput) apartamentoInput.value = morador.apartamento;
 
-  const blocoInput = document.getElementById('blocoMorador');
-  if (blocoInput) blocoInput.value = morador.bloco;
+      const blocoInput = document.getElementById('blocoMorador');
+      if (blocoInput) blocoInput.value = morador.bloco;
 
-  const telefoneInput = document.getElementById('telefone');
-  if (telefoneInput) telefoneInput.value = morador.telefone;
+      const telefoneInput = document.getElementById('telefone');
+      if (telefoneInput) telefoneInput.value = morador.telefone;
 
-  cpfMorador = morador.cpf || ""; // <-- só armazena, não exibe
-  senhaMorador = morador.senha || "";
-})
+      cpfMorador = morador.cpf || "";
+      senhaMorador = morador.senha || "";
+    })
     .catch(err => {
       console.error("Erro ao carregar dados:", err);
       alert("Erro ao carregar dados do morador.");
