@@ -1,6 +1,5 @@
-const username = "admin";
-const password = "123456";
-const basicAuth = btoa(`${username}:${password}`);
+const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
+const BASIC_AUTH = btoa("admin:123456");
 
 let idMorador = 0;
 let cpfMorador = "";
@@ -89,7 +88,7 @@ function cadastrarMorador() {
   }
 
   // Envia para a API
-  fetch("https://back-endbigcondominios-production.up.railway.app/morador", {
+  fetch(API_URL, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -166,7 +165,7 @@ function atualizarMorador() {
   }
 
   // Envia para a API
-  fetch(`https://back-endbigcondominios-production.up.railway.app/morador/${idMorador}`, {
+  fetch(API_URL + `/${idMorador}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -258,7 +257,7 @@ function carregarDados(moradorId) {
     alert("ID do morador não informado.");
     return;
   }
-  fetch(`https://back-endbigcondominios-production.up.railway.app/morador/${moradorId}`, {
+  fetch(API_URL+`/${moradorId}`, {
     method: "GET",
     headers: {
       "Authorization": `Basic ${BASIC_AUTH}`
