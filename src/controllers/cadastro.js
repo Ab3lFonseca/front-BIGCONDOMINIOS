@@ -1,7 +1,6 @@
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
-let idMorador = 0;
 let cpfMorador = "";
 let senhaMorador = "";
 
