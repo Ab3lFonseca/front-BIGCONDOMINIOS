@@ -21,18 +21,19 @@ function listarMoradores() {
       moradores.forEach(m => {
         const tr = document.createElement("tr");
         tr.innerHTML = `
-              <td id="idMorador">${m.id}</td>
-              <td>${m.nome}</td>
-              <td>${m.bloco}</td>
-              <td>${m.apartamento}</td>
-              <td>${m.telefone}</td>
-              <td>
-            <div class="acaoGestao">
-              <i class="fa-solid fa-gear engrenagem"></i>
-              <i class="fa-solid fa-trash lixo" ></i>
-            </div>
-          </td>
-            `;
+  <td id="idMorador">${m.id}</td>
+  <td>${m.nome}</td>
+  <td>${m.bloco}</td>
+  <td>${m.apartamento}</td>
+  <td>${m.telefone}</td>
+  <td>
+    <div class="acaoGestao">
+      <i class="fa-solid fa-pen engrenagem"></i>
+      <i class="fa-solid fa-trash lixo"></i>
+    </div>
+  </td>
+`;
+
         tbody.appendChild(tr);
       });
     });
