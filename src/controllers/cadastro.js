@@ -230,8 +230,8 @@ function validarSenha(senha) {
 const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
-function carregarDados() {
-  idMorador = document.getElementById('idMorador').value;
+function carregarDados(moradorId) {
+  idMorador = moradorId
   if (!idMorador) {
     alert("ID do morador não informado.");
     return;
@@ -255,3 +255,4 @@ function carregarDados() {
     });
 
 }//
+window.carregarDados = carregarDados;

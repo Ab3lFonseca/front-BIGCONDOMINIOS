@@ -71,31 +71,8 @@ document.addEventListener('click', function (event) {
   if (event.target.classList.contains('engrenagem')) {
     const linha = event.target.closest('tr'); // pega a linha inteira
     const id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
-    carregarCadastro(id);
+    carregarDados(id);
   }
 });
 
-function carregarCadastro(id) {
-  window.location.href = `/src/pages/cadastro.html?id=${id}`;
-  if (id) {
-  fetch("https://back-endbigcondominios-production.up.railway.app/morador/"+id, {
-
-    method: "GET",
-    headers: {
-      "Authorization": `Basic ${btoa(basicAuth)}`
-    }
-    
-  })
-  .then(res => res.json())
-  .then(morador => {
-    // Preencha os campos do formulário com os dados recebidos
-    document.getElementById('nome').value = morador.nome;
-    document.getElementById('bloco').value = morador.bloco;
-    document.getElementById('apartamento').value = morador.apartamento;
-    document.getElementById('telefone').value = morador.telefone;
-    // ...adicione outros campos conforme necessário
-  });
-}
-  // Aqui você chama a lógica/endpoint de exclusão
-}
 
