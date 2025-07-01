@@ -236,7 +236,7 @@ function carregarDados() {
     alert("ID do morador não informado.");
     return;
   }
-  fetch(`https://back-endbigcondominios-production.up.railway.app/morador/${idMorador}`, {
+  fetch(API_URL+`/${idMorador}`, {
 
     method: "GET",
     headers: {
