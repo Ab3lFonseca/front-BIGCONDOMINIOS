@@ -153,9 +153,9 @@ function atualizarMorador() {
     body: JSON.stringify({
       id: idMorador,
       nome: dados.nome,
-      CPF: dados.cpf,
+      CPF: cpfMorador,
       email: dados.email,
-      senha: dados.senha,
+      senha: senhaMorador,
       apartamento: dados.apartamento,
       bloco: dados.bloco,
       telefone: dados.telefone,
@@ -259,6 +259,9 @@ function carregarDados(moradorId) {
 
   const telefoneInput = document.getElementById('telefone');
   if (telefoneInput) telefoneInput.value = morador.telefone;
+
+  let cpfMorador = morador.CPF
+  let senhaMorador = morador.senha;
 })
     .catch(err => {
       console.error("Erro ao carregar dados:", err);
