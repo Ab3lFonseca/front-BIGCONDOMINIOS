@@ -1,8 +1,9 @@
-
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
 let idMorador = 0;
+let cpfMorador = "";
+let senhaMorador = "";
 
 document.addEventListener("DOMContentLoaded", () => {
   const botao = document.getElementById("btnConfirmar");
@@ -122,24 +123,44 @@ function cadastrarMorador() {
 
 //Função para atualizar morador
 function atualizarMorador() {
-   const dados = getFormValues();
+  const dados = getFormValues();
 
-  // Verifica campos obrigatórios
-  for (const [campo, valor] of Object.entries(dados)) {
-    if(campo != 'cpf' && campo != 'senha') 
-    if (!valor) {
-      alert("Preencha todos os campos!");
+  // Sempre usa o CPF antigo, nunca o do input
+  dados.cpf = cpfMorador;
+
+  // Se o campo senha estiver vazio, usa a antiga
+  let senhaParaEnviar = senhaMorador;
+  const senhaInput = document.getElementById(campos.senha);
+  if (senhaInput && senhaInput.value.trim()) {
+    senhaParaEnviar = senhaInput.value.trim();
+    // Valida a senha nova, se informada
+    if (!validarSenha(senhaParaEnviar)) {
+      alert(mensagensErro.senha);
+      senhaInput.value = "";
+      senhaInput.focus();
       return false;
     }
   }
 
-  // Validações específicas
+  // Verifica campos obrigatórios (exceto cpf e senha)
+  for (const [campo, valor] of Object.entries(dados)) {
+    if (campo !== 'cpf' && campo !== 'senha') {
+      if (!valor) {
+        alert("Preencha todos os campos!");
+        return false;
+      }
+    }
+  }
+
+  // Validações específicas (exceto cpf e senha)
   for (const [campo, validator] of Object.entries(validators)) {
-    if (!validator(dados[campo]) && (campo != 'cpf' && campo != 'senha')) {
-      alert(mensagensErro[campo]);
-      document.getElementById(campos[campo]).value = "";
-      document.getElementById(campos[campo]).focus();
-      return false;
+    if (campo !== 'cpf' && campo !== 'senha') {
+      if (!validator(dados[campo])) {
+        alert(mensagensErro[campo]);
+        document.getElementById(campos[campo]).value = "";
+        document.getElementById(campos[campo]).focus();
+        return false;
+      }
     }
   }
 
@@ -153,9 +174,9 @@ function atualizarMorador() {
     body: JSON.stringify({
       id: idMorador,
       nome: dados.nome,
-      CPF: cpfMorador,
+      CPF: dados.cpf, // Sempre o antigo
       email: dados.email,
-      senha: senhaMorador,
+      senha: senhaParaEnviar, // Só muda se informado
       apartamento: dados.apartamento,
       bloco: dados.bloco,
       telefone: dados.telefone,
@@ -260,8 +281,8 @@ function carregarDados(moradorId) {
   const telefoneInput = document.getElementById('telefone');
   if (telefoneInput) telefoneInput.value = morador.telefone;
 
-  let cpfMorador = morador.CPF
-  let senhaMorador = morador.senha;
+  cpfMorador = morador.CPF || ""; // <-- só armazena, não exibe
+  senhaMorador = morador.senha || "";
 })
     .catch(err => {
       console.error("Erro ao carregar dados:", err);
