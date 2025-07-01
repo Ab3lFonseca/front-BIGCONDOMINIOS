@@ -252,7 +252,7 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
 function carregarDados(moradorId) {
-  idMorador = document.getElementById('idMorador');
+  idMorador = document.getElementById('idMorador').value;
   if (!moradorId) {
     alert("ID do morador não informado.");
     return;

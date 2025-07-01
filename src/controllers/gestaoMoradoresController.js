@@ -42,7 +42,7 @@ function listarMoradores() {
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('lixo')) {
     const linha = event.target.closest('tr'); // pega a linha inteira
-    const id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
+    let id = document.getElementById("idMorador").value // assume que o ID está na primeira coluna (td)
     
     if (confirm(`Deseja excluir o morador com ID ${id}?`)) {
       excluirMorador(id);
@@ -51,7 +51,7 @@ document.addEventListener('click', function (event) {
 });
 
 function excluirMorador(id) {
-  fetch("https://back-endbigcondominios-production.up.railway.app/morador/"+id, {
+  fetch("https://back-endbigcondominios-production.up.railway.app/morador"+id, {
 
     method: "DELETE",
     headers: {
