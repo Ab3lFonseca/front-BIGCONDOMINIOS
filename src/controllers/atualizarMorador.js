@@ -3,7 +3,7 @@ const id = document.getElementById("idMorador") ? document.getElementById("idMor
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
-let idFunciona;
+let idMorador;
 let cpfMorador = "";
 let senhaMorador = "";
 
