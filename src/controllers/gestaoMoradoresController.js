@@ -42,7 +42,7 @@ function listarMoradores() {
 document.addEventListener('click', function (event) {
   if (event.target.classList.contains('lixo')) {
     const linha = event.target.closest('tr'); // pega a linha inteira
-    let id = document.getElementById("idMorador").value // assume que o ID está na primeira coluna (td)
+    let id = linha.querySelector('td').innerText; // assume que o ID está na primeira coluna (td)
     
     if (confirm(`Deseja excluir o morador com ID ${id}?`)) {
       excluirMorador(id);

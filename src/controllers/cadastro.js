@@ -257,7 +257,7 @@ function carregarDados(moradorId) {
     alert("ID do morador não informado.");
     return;
   }
-  fetch(API_URL+`/${moradorId}`, {
+  fetch(API_URL+`/${idMorador}`, {
     method: "GET",
     headers: {
       "Authorization": `Basic ${BASIC_AUTH}`
