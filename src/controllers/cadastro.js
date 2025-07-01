@@ -165,7 +165,7 @@ function atualizarMorador() {
   }
 
   // Envia para a API
-  fetch(API_URL, {
+  fetch(API_URL + `/${idMorador}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
