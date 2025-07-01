@@ -174,7 +174,7 @@ function atualizarMorador() {
     body: JSON.stringify({
       id: idMorador,
       nome: dados.nome,
-      CPF: dados.cpf, // Sempre o antigo
+      CPF: cpfMorador, // Sempre o antigo
       email: dados.email,
       senha: senhaParaEnviar, // Só muda se informado
       apartamento: dados.apartamento,
