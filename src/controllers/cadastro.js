@@ -1,4 +1,4 @@
-// Configuração de autenticação básica (nunca exponha isso em produção)
+
 const API_URL = "https://back-endbigcondominios-production.up.railway.app/morador";
 const BASIC_AUTH = btoa("admin:123456");
 
@@ -238,7 +238,7 @@ function carregarDados(moradorId) {
   fetch(API_URL+`/${moradorId}`, {
     method: "GET",
     headers: {
-      "Authorization": `Basic ${basicAuth}`
+      "Authorization": `Basic ${BASIC_AUTH}`
     }
   })
     .then(res => res.json())
