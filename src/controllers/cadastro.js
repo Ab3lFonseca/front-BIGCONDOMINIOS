@@ -252,12 +252,12 @@ const params = new URLSearchParams(window.location.search);
 const id = params.get('id');
 
 function carregarDados(moradorId) {
-  idMorador = document.getElementById('idMorador').value;
+  idMorador = moradorId;
   if (!moradorId) {
     alert("ID do morador não informado.");
     return;
   }
-  fetch(API_URL+`/${idMorador}`, {
+  fetch(API_URL+`/${moradorId}`, {
     method: "GET",
     headers: {
       "Authorization": `Basic ${BASIC_AUTH}`
